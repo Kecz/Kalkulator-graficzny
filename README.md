@@ -3,7 +3,7 @@
 Projekt ten jest to kalkulator graficzny umożliwiający między innymi wykreślanie wykresów funkcji oraz badanie
 monotoniczności funkcji.
 
-Projekt korzysta z MATLABowego GUIDE, w celu poprawnego działanie trzeba ściągnąć plik KalkulatorV6.fig.
+Projekt korzysta z MATLABowego GUIDE, w celu poprawnego działanie należy ściągnąć plik KalkulatorV6.fig.
 
 Środowisko: MATLAB 2017a
 
