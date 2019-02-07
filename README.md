@@ -12,3 +12,5 @@ Kalkulator ten umożliwia:
 - wpisanie ręcznie funkcji do wykreślenia  
 - określenie przedziału x i y w którym ma być wykreślona dana funkcja  
 - określenie dokładności próbkowania funkcji podczas jej generowania  
+
+Data wykonania: listopad 2018
