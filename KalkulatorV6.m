@@ -1,9 +1,9 @@
-%Projekt from WNO - Bartosz BieliÒski 165430
+%Projekt z WNO - Bartosz Bieli≈Ñski 
 
-%Graphing calculator - graphs of the monotonicity function, test
-%monotonicity of the function
+%Kalkulator graficzny - wykresy funkcji monotoniczno≈õci, badanie
+%monotoniczno≈õci funkcji
 
-%Environment: MATLAB R2017a
+%≈örodowisko: MATLAB R2017a
 
 
 function varargout = KalkulatorV6(varargin)
@@ -62,7 +62,7 @@ function KalkulatorV6_OpeningFcn(hObject, eventdata, handles, varargin)
 
 % Choose default command line output for KalkulatorV6
 
-%Przypisanie poczπtkowych wartoúci do wymagjacych tego zmiennych
+%Przypisanie poczƒÖtkowych warto≈õci do wymagjacych tego zmiennych
 handles.output = hObject;
 handles.funkcja1 = 1;
 handles.radiobutton = 1;
@@ -93,13 +93,12 @@ varargout{1} = handles.output;
 % --- Executes on selection change in menu_funkcji.
 function menu_funkcji_Callback(hObject, eventdata, handles)
 
-%Downloading data from popmenu
+%Pobieranie warto≈õci z popupmenu
 str = get(hObject, 'String');
 val = get(hObject, 'Value');
 
-%
-%W zaleønoúci od wartoúci z popupmenu, przypisuje do zmiennej w handles
-%odpowiedniπ wartoúc uøywanπ pÛüniej przy rysowaniu
+%W zale≈ºno≈õci od warto≈õci z popupmenu, przypisuje do zmiennej w handles
+%odpowiedniƒÖ warto≈õc u≈ºywanƒÖ p√≥≈∫niej przy rysowaniu
 switch str{val}
     case 'sin'
         handles.funkcja1 = 1;
@@ -138,7 +137,7 @@ guidata(hObject,handles);
 % --- Executes when selected object is changed in uibuttongroup1.
 function uibuttongroup1_SelectionChangedFcn(hObject, eventdata, handles)
 
-%Reakcja na zmianÍ wyboru typu rysowanej funkcji
+%Reakcja na zmianƒô wyboru typu rysowanej funkcji
 switch(get(eventdata.NewValue, 'Tag'))
     case 'radiobutton_opcja1' 
         handles.radiobutton = 1;
@@ -167,8 +166,8 @@ function uibuttongroup3_SelectionChangedFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-%Zmiana trybu wyúwietlania nastÍpnej funkcji, moøliwoúci to dodaj nowπ
-%funkcjÍ do wykresu albo nadpisz starπ
+%Zmiana trybu wy≈õwietlania nastƒôpnej funkcji, mo≈ºliwo≈õci to dodaj nowƒÖ
+%funkcjƒô do wykresu albo nadpisz starƒÖ
 switch(get(eventdata.NewValue, 'Tag'))
     
     case 'radiobutton_nadpisz' 
@@ -187,8 +186,8 @@ function uibuttongroup4_SelectionChangedFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-%WybÛr czy wykres ma byÊ domyúlnie liniπ czy moøe teø majπ byÊ naniesione
-%na niego wszystkie punkty(przydatne przy funkcji sta≥owartoúciowej)
+%Wyb√≥r czy wykres ma byƒá domy≈õlnie liniƒÖ czy mo≈ºe te≈º majƒÖ byƒá naniesione
+%na niego wszystkie punkty(przydatne przy funkcji sta≈Çowarto≈õciowej)
 switch(get(eventdata.NewValue, 'Tag'))
     case 'radiobutton_wzor' 
         handles.rodzaj_plota = 1;
@@ -208,8 +207,8 @@ function uibuttongroup5_SelectionChangedFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-%Zmiana wyboru zakresy f(x), moøliwoúci to automatyczne dopasowanie zakresu
-%albo rÍczny wybÛr zakresu
+%Zmiana wyboru zakresy f(x), mo≈ºliwo≈õci to automatyczne dopasowanie zakresu
+%albo rƒôczny wyb√≥r zakresu
 switch(get(eventdata.NewValue, 'Tag'))
     case 'radiobutton_automatyczny' 
         handles.wprowadzenie_zakresu_y = 0;
@@ -229,11 +228,11 @@ guidata(hObject,handles);
 % --- Executes on button press in Rysuj_Pushbutton.
 function Rysuj_Pushbutton_Callback(hObject, eventdata, handles)
 
-    %Zerowanie komunikatu o b≥Ídzie
+    %Zerowanie komunikatu o b≈Çƒôdzie
     set(handles.text_komunikat, 'String', '');
     set(handles.text_komunikat, 'FontSize', 14);
 
-    %Zczytanie z GUI zakresu x na wykresie, zakresu y na wykresie oraz dok≥adnoúci czyli podzia≥ki na
+    %Zczytanie z GUI zakresu x na wykresie, zakresu y na wykresie oraz dok≈Çadno≈õci czyli podzia≈Çki na
     %osi x i zapisanie ich do zmiennych typu double w strukturze handles
     string_x_od = get(handles.edit_x_od, 'string');
     x_od = str2double(string_x_od);
@@ -268,8 +267,8 @@ function Rysuj_Pushbutton_Callback(hObject, eventdata, handles)
     guidata(hObject,handles);
 
     
-    %Wywo≥ywanie odpowiednich opcji rysujπcych, ale z mechanizmem obs≥ugi
-    %b≥ÍdÛw w przypadku podania nieprawid≥owych danych wejúciowych
+    %Wywo≈Çywanie odpowiednich opcji rysujƒÖcych, ale z mechanizmem obs≈Çugi
+    %b≈Çƒôd√≥w w przypadku podania nieprawid≈Çowych danych wej≈õciowych
      try
          
         if handles.radiobutton == 1
@@ -287,20 +286,20 @@ function Rysuj_Pushbutton_Callback(hObject, eventdata, handles)
         end
         
     catch
-        set(handles.text_komunikat, 'String', 'Error - B≥Ídne dane wejúciowe');
+        set(handles.text_komunikat, 'String', 'Error - B≈Çƒôdne dane wej≈õciowe');
         set(handles.text_komunikat, 'FontSize', 20);
-        warning('B≥Ídne dane wejúciowe');
+        warning('B≈Çƒôdne dane wej≈õciowe');
      end
 
 
-%Rysowanie wybranej funkcji z rozwijanego menu, ktÛrej argumentem jest
+%Rysowanie wybranej funkcji z rozwijanego menu, kt√≥rej argumentem jest
 %podany wielomian
 function Opcja1(handles)
 
-    %Zresetowanie komunikatu o b≥Ídzie
+    %Zresetowanie komunikatu o b≈Çƒôdzie
     set(handles.text_komunikat, 'String', '');
 
-    %Pobranie danych o wartoúci wspÛ≥rzynnikÛw wielomianu 
+    %Pobranie danych o warto≈õci wsp√≥≈Çrzynnik√≥w wielomianu 
     string_wsp_a = get(handles.edit_wsp_a, 'string');
     wsp_a = str2double(string_wsp_a);
 
@@ -313,7 +312,7 @@ function Opcja1(handles)
     string_wsp_d = get(handles.edit_wsp_d, 'string');
     wsp_d = str2double(string_wsp_d);
     
-    %Rysowanie odpowiedniej funkcji w zaleønoúci od wybranej opcji
+    %Rysowanie odpowiedniej funkcji w zale≈ºno≈õci od wybranej opcji
     
     %sinus
     if handles.funkcja1 == 1        
@@ -322,7 +321,7 @@ function Opcja1(handles)
         funkcja = sin(wsp_a*x.^3 + wsp_b*x.^2 + wsp_c*x + wsp_d );
         plot(x, funkcja);
         
-         %Dodawanie ograniczeÒ na osiach jeúli uøytkownik wybra≥ tÍ opcjÍ
+         %Dodawanie ogranicze≈Ñ na osiach je≈õli u≈ºytkownik wybra≈Ç tƒô opcjƒô
          if(handles.wprowadzenie_zakresu_y == 1)
              ylim([handles.y_od handles.y_do]);
          end
@@ -333,7 +332,7 @@ function Opcja1(handles)
         wyswietl_sin = ['sin(', string_wsp_a, '*x.^3 + ', string_wsp_b, '*x.^2 + ', string_wsp_c, '*x + ', string_wsp_d, ')'];
         set(handles.edit_wyswietl,'String', wyswietl_sin)
         
-        %Funkcja badajπca monotonicznoúÊ wybranej funkcji
+        %Funkcja badajƒÖca monotoniczno≈õƒá wybranej funkcji
         Badanie_monotonicznosci(funkcja, handles);
         
     %cosinus    
@@ -357,19 +356,19 @@ function Opcja1(handles)
     %tangens    
     elseif handles.funkcja1 == 3        
         
-        %Liczenie ile od asymptoty znajduje siÍ funkcja tan jeúli
-        %uøytkownik poda≥ tylko parametr d (sprawdzenie czy nie poda≥
-        %wartoúci z asymptoty)
+        %Liczenie ile od asymptoty znajduje siƒô funkcja tan je≈õli
+        %u≈ºytkownik poda≈Ç tylko parametr d (sprawdzenie czy nie poda≈Ç
+        %warto≈õci z asymptoty)
         if wsp_d >=0
             przyblizenie_tan = rem(wsp_d + pi/2, pi);
         elseif wsp_d < 0
             przyblizenie_tan = rem(-wsp_d + pi/2, pi);
         end
         
-        %Sprawdzanie czy uøywkownik nie poda≥ sta≥ej wartoúci tan, ktÛra
+        %Sprawdzanie czy u≈ºywkownik nie poda≈Ç sta≈Çej warto≈õci tan, kt√≥ra
         %jest sprzeczna
         if wsp_a == 0 && wsp_b == 0 && wsp_c == 0 && (przyblizenie_tan<0.03 || przyblizenie_tan > 3.11)
-            set(handles.text_komunikat, 'String', 'Poda≥eú nieprawid≥owe dane');
+            set(handles.text_komunikat, 'String', 'Poda≈Çe≈õ nieprawid≈Çowe dane');
         else
             set(handles.text_komunikat, 'String', '');
             
@@ -379,11 +378,11 @@ function Opcja1(handles)
             x_tan = [];
             [~, koniec_tan] = size(handles.x);
 
-            %Przepiswyanie do wektora x tylko takich wartoúci f(x) ktÛre
-            %nie sπ zbyt duøe, bo tan dla -pi/2 i +pi/2 dπøy do
-            %nieskoÒczonoúci, wiÍc to ogranicza nam zbiÛr wartoúci funkcji,
-            %øeby wykres by≥ czytelny, te miejsca, gdzie wartoúci sπ za
-            %duøe sπ nadpisane przez Inf, poniewaø Ind zostawia puste 
+            %Przepiswyanie do wektora x tylko takich warto≈õci f(x) kt√≥re
+            %nie sƒÖ zbyt du≈ºe, bo tan dla -pi/2 i +pi/2 dƒÖ≈ºy do
+            %niesko≈Ñczono≈õci, wiƒôc to ogranicza nam zbi√≥r warto≈õci funkcji,
+            %≈ºeby wykres by≈Ç czytelny, te miejsca, gdzie warto≈õci sƒÖ za
+            %du≈ºe sƒÖ nadpisane przez Inf, poniewa≈º Ind zostawia puste 
             %miejsce w wykresie
 
             for i=1:koniec_tan
@@ -420,7 +419,7 @@ function Opcja1(handles)
         end
             
         if wsp_a == 0 && wsp_b == 0 && wsp_c == 0 && (przyblizenie_cot<0.03 || przyblizenie_cot > 3.11)
-            set(handles.text_komunikat, 'String', 'Poda≥eú nieprawid≥owe dane');
+            set(handles.text_komunikat, 'String', 'Poda≈Çe≈õ nieprawid≈Çowe dane');
         else
             set(handles.text_komunikat, 'String', '');
             
@@ -430,10 +429,10 @@ function Opcja1(handles)
             x_cot = [];
             [~, koniec_cot] = size(handles.x);
 
-            %Przepiswyanie do wektora x tylko takich wartoúci f(x) ktÛre
-            %nie sπ zbyt duøe, bo cot dla -pi/2 i +pi/2 dπøy do
-            %nieskoÒczonoúci, wiÍc to ogranicza nam zbiÛr wartoúci funkcji,
-            %øeby wykres by≥ czytelny
+            %Przepiswyanie do wektora x tylko takich warto≈õci f(x) kt√≥re
+            %nie sƒÖ zbyt du≈ºe, bo cot dla -pi/2 i +pi/2 dƒÖ≈ºy do
+            %niesko≈Ñczono≈õci, wiƒôc to ogranicza nam zbi√≥r warto≈õci funkcji,
+            %≈ºeby wykres by≈Ç czytelny
 
             for i=1:koniec_cot
 
@@ -482,9 +481,9 @@ function Opcja1(handles)
         
         x = handles.x;
         
-        %Sprawdzanie czy uøytkownik nie poda≥ ujemnej wartoúci dla u≥amka
+        %Sprawdzanie czy u≈ºytkownik nie poda≈Ç ujemnej warto≈õci dla u≈Çamka
         if wsp_a == 0 && wsp_b == 0 && wsp_c == 0 && wsp_d < 0
-            set(handles.text_komunikat, 'String', 'Poda≥eú nieprawid≥owe dane');
+            set(handles.text_komunikat, 'String', 'Poda≈Çe≈õ nieprawid≈Çowe dane');
         else
             set(handles.text_komunikat, 'String', '');
             funkcja = real(sqrt(wsp_a*x.^3 + wsp_b*x.^2 + wsp_c*x + wsp_d ));
@@ -505,9 +504,9 @@ function Opcja1(handles)
     %logarytm naturalny    
     elseif handles.funkcja1 == 7        
         
-        %Sprawdzanie czy uøytkownik nie poda≥ ujemnej wartoúci dla logarytmu
+        %Sprawdzanie czy u≈ºytkownik nie poda≈Ç ujemnej warto≈õci dla logarytmu
         if wsp_a == 0 && wsp_b == 0 && wsp_c == 0 && wsp_d < 0
-            set(handles.text_komunikat, 'String', 'Poda≥eú nieprawid≥owe dane');
+            set(handles.text_komunikat, 'String', 'Poda≈Çe≈õ nieprawid≈Çowe dane');
         else
             set(handles.text_komunikat, 'String', '');
             
@@ -517,8 +516,8 @@ function Opcja1(handles)
             x_log = [];
             [~, koniec_log] = size(handles.x);
 
-            %Przepiswyanie do wektora x tylko takich wartoúci f(x) ktÛre
-            %spe≥niajπ za≥oøenia dla logarytmÛw
+            %Przepiswyanie do wektora x tylko takich warto≈õci f(x) kt√≥re
+            %spe≈ÇniajƒÖ za≈Ço≈ºenia dla logarytm√≥w
 
             for i=1:koniec_log
 
@@ -531,12 +530,12 @@ function Opcja1(handles)
 
             end
             
-            %Jeúli jedynie 3 punkty spe≥nijπ za≥oøenie, to znaczy, øe
-            %podane dane sπ nieprawid≥owe, gdyø wygenerowa≥y tylko 3
-            %prawid≥owe pkt - funkcja jest jakby na granicy swojej
+            %Je≈õli jedynie 3 punkty spe≈ÇnijƒÖ za≈Ço≈ºenie, to znaczy, ≈ºe
+            %podane dane sƒÖ nieprawid≈Çowe, gdy≈º wygenerowa≈Çy tylko 3
+            %prawid≈Çowe pkt - funkcja jest jakby na granicy swojej
             %dziedziny
             if size(x_log) < 3
-                set(handles.text_komunikat, 'String', 'Poda≥eú nieprawid≥owe dane, prawdopodobnie nie spe≥niajπ one za≥oøeÒ dla danej funkcji');
+                set(handles.text_komunikat, 'String', 'Poda≈Çe≈õ nieprawid≈Çowe dane, prawdopodobnie nie spe≈ÇniajƒÖ one za≈Ço≈ºe≈Ñ dla danej funkcji');
             else
                 set(handles.text_komunikat, 'String', '');
                 
@@ -558,7 +557,7 @@ function Opcja1(handles)
     elseif handles.funkcja1 == 8        
         
         if wsp_a == 0 && wsp_b == 0 && wsp_c == 0 && wsp_d < 0
-            set(handles.text_komunikat, 'String', 'Poda≥eú nieprawid≥owe dane');
+            set(handles.text_komunikat, 'String', 'Poda≈Çe≈õ nieprawid≈Çowe dane');
         else
             set(handles.text_komunikat, 'String', '');
             
@@ -567,8 +566,8 @@ function Opcja1(handles)
             x_log10 = [];
             [~, koniec_log10] = size(handles.x);
 
-            %Przepiswyanie do wektora x tylko takich wartoúci f(x) ktÛre
-            %spe≥niajπ za≥oøenia dla logarytmÛw
+            %Przepiswyanie do wektora x tylko takich warto≈õci f(x) kt√≥re
+            %spe≈ÇniajƒÖ za≈Ço≈ºenia dla logarytm√≥w
 
             for i=1:koniec_log10
 
@@ -582,7 +581,7 @@ function Opcja1(handles)
             end
             
             if size(x_log10) < 3
-                set(handles.text_komunikat, 'String', 'Poda≥eú nieprawid≥owe dane, prawdopodobnie nie spe≥niajπ one za≥oøeÒ dla danej funkcji');
+                set(handles.text_komunikat, 'String', 'Poda≈Çe≈õ nieprawid≈Çowe dane, prawdopodobnie nie spe≈ÇniajƒÖ one za≈Ço≈ºe≈Ñ dla danej funkcji');
             else
                 set(handles.text_komunikat, 'String', '');
                 
@@ -646,9 +645,9 @@ function Opcja2(handles)
     string_podstawa_loga = get(handles.edit_podstawa_loga, 'string');
     podstawa_loga = str2double(string_podstawa_loga);
     
-    %Sprawdzanie czy uøytkownik nie poda≥ b≥Ídnej podstawy
+    %Sprawdzanie czy u≈ºytkownik nie poda≈Ç b≈Çƒôdnej podstawy
     if podstawa_loga<=0 || podstawa_loga == 1
-        set(handles.text_komunikat, 'String', 'Poda≥eú nieprawid≥owe dane');
+        set(handles.text_komunikat, 'String', 'Poda≈Çe≈õ nieprawid≈Çowe dane');
      
     else
         set(handles.text_komunikat, 'String', '');
@@ -671,13 +670,13 @@ function Opcja2(handles)
         x_loga = [];
         [~, koniec_loga] = size(handles.x);
         
-        %Przepiswyanie do wektora x tylko takich wartoúci f(x) ktÛre
-        %spe≥niajπ za≥oøenia dla logarytmÛw
+        %Przepiswyanie do wektora x tylko takich warto≈õci f(x) kt√≥re
+        %spe≈ÇniajƒÖ za≈Ço≈ºenia dla logarytm√≥w
         
-        %Przepiswyanie do wektora x tylko takich wartoúci f(x) ktÛre
-        %spe≥niajπ za≥oøenia dla logarytmÛw, wartoúci nie spe≥niajπce
-        %za≥oøeÒ zapisywane sπ jako Inf, gdyø takie wartosci matlab pomija
-        %rysujπÊ wykres pozostawiajπc pustπ dziurÍ w plocie
+        %Przepiswyanie do wektora x tylko takich warto≈õci f(x) kt√≥re
+        %spe≈ÇniajƒÖ za≈Ço≈ºenia dla logarytm√≥w, warto≈õci nie spe≈ÇniajƒÖce
+        %za≈Ço≈ºe≈Ñ zapisywane sƒÖ jako Inf, gdy≈º takie wartosci matlab pomija
+        %rysujƒÖƒá wykres pozostawiajƒÖc pustƒÖ dziurƒô w plocie
         for i=1:koniec_loga
             
            wartosc_loga = (handles.x(1, i)^3)*wsp_a + (handles.x(1, i)^2)*wsp_b + (handles.x(1, i))*wsp_c + wsp_d;
@@ -690,7 +689,7 @@ function Opcja2(handles)
         end
         
         if size(x_loga) < 3
-            set(handles.text_komunikat, 'String', 'Poda≥eú nieprawid≥owe dane, prawdopodobnie nie spe≥niajπ one za≥oøeÒ dla danej funkcji');
+            set(handles.text_komunikat, 'String', 'Poda≈Çe≈õ nieprawid≈Çowe dane, prawdopodobnie nie spe≈ÇniajƒÖ one za≈Ço≈ºe≈Ñ dla danej funkcji');
         else
             set(handles.text_komunikat, 'String', '');
             
@@ -711,16 +710,16 @@ function Opcja2(handles)
     end
     
    
-%Funkcja potÍgowa o dowolnej sta≥ej podstawie, w potÍdze jest wielomian zmiennej x czyli f(x)    
+%Funkcja potƒôgowa o dowolnej sta≈Çej podstawie, w potƒôdze jest wielomian zmiennej x czyli f(x)    
 function Opcja3(handles)
 
-    %Wczytywanie podstawy potÍgi
+    %Wczytywanie podstawy potƒôgi
     string_podstawa_potegi = get(handles.edit_podstawa_potegi, 'string');
     podstawa_potegi = str2double(string_podstawa_potegi);
     
-    %Sprawdzanie czy podstawa jest zgodna z za≥oøeniami
+    %Sprawdzanie czy podstawa jest zgodna z za≈Ço≈ºeniami
     if podstawa_potegi<=0
-        set(handles.text_komunikat, 'String', 'Poda≥eú nieprawid≥owe dane');
+        set(handles.text_komunikat, 'String', 'Poda≈Çe≈õ nieprawid≈Çowe dane');
     else
         
         set(handles.text_komunikat, 'String', '');
@@ -756,7 +755,7 @@ function Opcja3(handles)
     end
 
 
-%Rysowanie funkcji wprowadzonej przez uøytkownika w pole tekstowe    
+%Rysowanie funkcji wprowadzonej przez u≈ºytkownika w pole tekstowe    
 function Opcja4(handles)
 
     %Tworzenie wektora argumentu x
@@ -765,39 +764,39 @@ function Opcja4(handles)
     %Pobieranie wzoru jako string z odpowiedniego pola tekstowego
     wpisany_wzor = get(handles.edit_wyswietl, 'string');
     
-    %Sprawdzane czy w stringu wystÍpuje tangens albo cotanges, bo jeúli
-    %wystÍpuje to konieczne bÍdzie ograniczenie wartoúci funkcji, øeby nie
-    %lecia≥a do nieskoÒczonoúci w asymptotach
+    %Sprawdzane czy w stringu wystƒôpuje tangens albo cotanges, bo je≈õli
+    %wystƒôpuje to konieczne bƒôdzie ograniczenie warto≈õci funkcji, ≈ºeby nie
+    %lecia≈Ça do niesko≈Ñczono≈õci w asymptotach
     szukanie_tan = strfind(wpisany_wzor, 'tan');
     [~, wielkosc_szukanie_tan] = size(szukanie_tan);
     
     szukanie_cot = strfind(wpisany_wzor, 'cot');
     [~, wielkosc_szukanie_cot] = size(szukanie_cot);
     
-    %Sprawdzanie czy w stringu wystÍpuje w ogÛle zmienna x, bo jeúli nie to
-    %wtedy funkcja ma sta≥π wartoúÊ i wiemy, øe jest sta≥a
+    %Sprawdzanie czy w stringu wystƒôpuje w og√≥le zmienna x, bo je≈õli nie to
+    %wtedy funkcja ma sta≈ÇƒÖ warto≈õƒá i wiemy, ≈ºe jest sta≈Ça
     szukanie_x = strfind(wpisany_wzor, 'x');
     [~, wielkosc_szukanie_x] = size(szukanie_x);
     
-    %Sprawdzanie czy wczytany string moøe byÊ przekonwertowany na wzÛr
-    %matematyczny, jeúli nie, to wyúwietlony zostaje odpowiedni komunikat
+    %Sprawdzanie czy wczytany string mo≈ºe byƒá przekonwertowany na wz√≥r
+    %matematyczny, je≈õli nie, to wy≈õwietlony zostaje odpowiedni komunikat
     try
-        %Konwertowanie stringa do funkcji matematycznej z uøyciem 'eval'
+        %Konwertowanie stringa do funkcji matematycznej z u≈ºyciem 'eval'
         funkcja = eval(wpisany_wzor);
     catch
-        set(handles.text_komunikat, 'String', 'Error - B≥Ídne dane wejúciowe - Zalecany restart');
+        set(handles.text_komunikat, 'String', 'Error - B≈Çƒôdne dane wej≈õciowe - Zalecany restart');
         set(handles.text_komunikat, 'FontSize', 20);
-        warning('B≥Ídne dane wejúciowe');
+        warning('B≈Çƒôdne dane wej≈õciowe');
     end
     
     
     %funkcja = eval(wpisany_wzor);
    
-    %Rysowanie wykresÛw (uøywanie plota bez zaznaczania wszystkich pkt)
+    %Rysowanie wykres√≥w (u≈ºywanie plota bez zaznaczania wszystkich pkt)
     if(handles.rodzaj_plota == 1)
         
-        %Jeúli znaleziono w stringu funkcji wystπpienie cot albo tan to
-        %wprowadü ograniczenia analogicznie jak dla samego tan albo cot
+        %Je≈õli znaleziono w stringu funkcji wystƒÖpienie cot albo tan to
+        %wprowad≈∫ ograniczenia analogicznie jak dla samego tan albo cot
         if(wielkosc_szukanie_cot > 0 || wielkosc_szukanie_tan > 0)
             
             set(handles.text_komunikat, 'String', '');
@@ -825,9 +824,9 @@ function Opcja4(handles)
         
         xlim([handles.x_od handles.x_do]);
         
-    %Rysowanie plota rysujπc wszystkie punkty na wykresie - uøywane najlepiej dla funkcji sta≥owartoúciowych, gdyø matlab
+    %Rysowanie plota rysujƒÖc wszystkie punkty na wykresie - u≈ºywane najlepiej dla funkcji sta≈Çowarto≈õciowych, gdy≈º matlab
     %lepiej sobie radzi z rysowaniem takich funkcji, jesli zaznacza je
-    %punktami, do tego bardziej optymalnie jest przypisac rÍcznie do tπ samπ wartoúÊ f(x) do wszystkich x
+    %punktami, do tego bardziej optymalnie jest przypisac rƒôcznie do tƒÖ samƒÖ warto≈õƒá f(x) do wszystkich x
     elseif(handles.rodzaj_plota == 2)
         
         if(wielkosc_szukanie_cot > 0 || wielkosc_szukanie_tan > 0)
@@ -847,7 +846,7 @@ function Opcja4(handles)
             end
             plot(x_tan, real(funkcja), '.');
             
-        % Jeúli funkcja nie ma zmiennej x, czyli jest sta≥owartoúciowa
+        % Je≈õli funkcja nie ma zmiennej x, czyli jest sta≈Çowarto≈õciowa
         elseif(wielkosc_szukanie_x == 0)
             
             wartosc_funkcji = funkcja;
@@ -874,34 +873,34 @@ function Opcja4(handles)
     Badanie_monotonicznosci(funkcja, handles);
  
 
-%Funkcja badajπca cechy monotonicznosci funkcji matematycznej
+%Funkcja badajƒÖca cechy monotonicznosci funkcji matematycznej
 function Badanie_monotonicznosci(funkcja, handles)
     
-    %Sprawdzanie monotonicznoúci oraz typu monotonicznoúci
+    %Sprawdzanie monotoniczno≈õci oraz typu monotoniczno≈õci
     czy_monotoniczna = issorted(funkcja, 'monotonic');
     if(czy_monotoniczna == 1)
         set(handles.text_czy_monotoniczna, 'String', 'tak');
         
-        %Funkcja sprawdzajπca czy dana funkcja matematyczna jest
-        %sta≥owartoúciowa
+        %Funkcja sprawdzajƒÖca czy dana funkcja matematyczna jest
+        %sta≈Çowarto≈õciowa
         czy_constant1 = Sprawdzanie_czy_constant(funkcja, handles);
         if(czy_constant1 == 1)
-            set(handles.text_typ_monotonicznosci, 'String', 'sta≥a');
+            set(handles.text_typ_monotonicznosci, 'String', 'sta≈Ça');
   
         elseif(issorted(funkcja, 'ascend')==1)
            
             if(issorted(funkcja, 'strictascend')==1)
-                set(handles.text_typ_monotonicznosci, 'String', 'stale rosnπca');        
+                set(handles.text_typ_monotonicznosci, 'String', 'stale rosnƒÖca');        
             else
-                set(handles.text_typ_monotonicznosci, 'String', 'niemalejπca');
+                set(handles.text_typ_monotonicznosci, 'String', 'niemalejƒÖca');
             end
 
         elseif(issorted(funkcja, 'descend')==1)
             
             if(issorted(funkcja, 'strictdescend')==1)
-                set(handles.text_typ_monotonicznosci, 'String', 'stale malejπca');        
+                set(handles.text_typ_monotonicznosci, 'String', 'stale malejƒÖca');        
             else
-                set(handles.text_typ_monotonicznosci, 'String', 'nierosnπca');
+                set(handles.text_typ_monotonicznosci, 'String', 'nierosnƒÖca');
             end
         end
 
@@ -910,18 +909,18 @@ function Badanie_monotonicznosci(funkcja, handles)
         set(handles.text_typ_monotonicznosci, 'String', '-');
     end
     
-    %Badanie wypuk≥oúci
+    %Badanie wypuk≈Ço≈õci
     
     %Druga pochodna:
     druga_pochodna = diff(diff(funkcja));
-    %Flagi obrazujπce wypuk≥oúÊ
+    %Flagi obrazujƒÖce wypuk≈Ço≈õƒá
     czy_wypukla = 0;
     czy_wklesla = 0;
     
     [~, wielkosc_pochodnej] = size(druga_pochodna);
     
-    %Sprawdzanie wypuk≥oúÊi, dla funkcji wypuk≥ej druga pochodna jest
-    %zawsze nieujemna, a dla f. wklÍs≥ej jest zawsze niedodatnia
+    %Sprawdzanie wypuk≈Ço≈õƒái, dla funkcji wypuk≈Çej druga pochodna jest
+    %zawsze nieujemna, a dla f. wklƒôs≈Çej jest zawsze niedodatnia
     for i=1:wielkosc_pochodnej
         if(druga_pochodna(i) >= 0)
             czy_wypukla = 1;
@@ -941,24 +940,24 @@ function Badanie_monotonicznosci(funkcja, handles)
     end
     
     if(czy_wypukla == 1)
-        set(handles.text_wypuklosc, 'String', 'Wypuk≥a');
+        set(handles.text_wypuklosc, 'String', 'Wypuk≈Ça');
     elseif(czy_wklesla == 1)
-        set(handles.text_wypuklosc, 'String', 'WklÍs≥a');
+        set(handles.text_wypuklosc, 'String', 'Wklƒôs≈Ça');
     else
         set(handles.text_wypuklosc, 'String', 'nie');
     end
     
     
-    %Ten fragment kody zosta≥ zastπpiony funkcjπ matlabowπ max() i min()
+    %Ten fragment kody zosta≈Ç zastƒÖpiony funkcjƒÖ matlabowƒÖ max() i min()
 %{
-    %Szukanie minimÛw i maximÛw
+    %Szukanie minim√≥w i maxim√≥w
     Dotychczasowe_min = funkcja(1);
     Dotychczasowe_max = funkcja(1);
     
     [~, dlugosc_x] = size(handles.x);
     
-    %Przeszukiwanie wartoúci funkcji w celu sprawdzenia czy sπ wartoúci
-    %wiÍksze lub mniejsze niø dotychczasowe znalezione min i max
+    %Przeszukiwanie warto≈õci funkcji w celu sprawdzenia czy sƒÖ warto≈õci
+    %wiƒôksze lub mniejsze ni≈º dotychczasowe znalezione min i max
     for i =1:dlugosc_x
         if(funkcja(i) > Dotychczasowe_max)
             Dotychczasowe_max = funkcja(i);
@@ -978,13 +977,13 @@ function Badanie_monotonicznosci(funkcja, handles)
     
     
 
-%Funkcja sprawdzajπca czy funkcja matematyczna jest funkcjπ sta≥π
+%Funkcja sprawdzajƒÖca czy funkcja matematyczna jest funkcjƒÖ sta≈ÇƒÖ
 function czy_constant =  Sprawdzanie_czy_constant(funkcja, handles)
 
     [~, wielkosc_x] = size(handles.x);
     
-    %Jeúli wszystkie wartoúci danej funkcji sπ takie same to jest to
-    %funkcja sta≥owartoúciowa
+    %Je≈õli wszystkie warto≈õci danej funkcji sƒÖ takie same to jest to
+    %funkcja sta≈Çowarto≈õciowa
     for i=1:wielkosc_x - 1
         if(funkcja(i) == funkcja(i+1))
              czy_takie_same =1;
@@ -1322,7 +1321,7 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-%Button zamykajπcy GUI
+%Button zamykajƒÖcy GUI
 % --- Executes on button press in pushbutton_zamknij.
 function pushbutton_zamknij_Callback(hObject, eventdata, handles)
 %clc;
